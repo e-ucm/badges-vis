@@ -1,0 +1,32 @@
+<div class="form-group">
+  <label>Badge Image URL</label>
+</div>
+<div class="form-group">
+  <input type="text" name="badgeimg" ng-model="vis.params.imageUrl">
+</div>
+<div class="form-group">
+  Check out at <a ng-href="{{vis.params.imageUrl}}" target="_blank">Badge Image<i class="fa fa-link"></i></a><br/>
+</div>
+<div class="form-group">
+  <label>Badge Text</label>
+</div>
+<div class="form-group">
+  <input type="text" name="badgetext" ng-model="vis.params.text">
+</div>
+<div class="form-group">
+  <small class="pull-middle">
+    Check out numeral format options at <a ng-href="http://numeraljs.com/" target="_blank">NumeralJS documentation<i
+    class="fa fa-link"></i></a>
+    <br/>
+    Remember to surround each field name with double quotes.
+  </small>
+</div>
+<div class="form-group">
+  <textarea rows="4" ng-model="vis.params.numeralFormat" class="form-control">
+    [{ "numeralFormat" : "%00,0" }]
+  </textarea>
+</div>
+<div class="form-group">
+  <label>Perform division</label>
+  <input type="checkbox" ng-model="vis.params.division" ng-checked="true" class="ng-pristine ng-valid ng-touched">
+</div>
