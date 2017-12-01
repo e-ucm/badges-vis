@@ -18,7 +18,7 @@ define(function (require) {
       var labels = null;
 
       try {
-        labels = JSON.parse(vis.params.jsonLabels);
+        labels = JSON.parse(vis.params.numeralFormat);
       } catch (e) {
         labels = '';
       }
@@ -30,7 +30,11 @@ define(function (require) {
         var value = 0;
 
         if (!d.__type.hasNoDsl) {
-          value = resp.aggregations[d.id].buckets[d._opts.params.filters[0].input.query.query_string.query].doc_count;
+          if(resp.aggregations[d.id]) {
+            value = resp.aggregations[d.id].buckets[d._opts.params.filters[0].input.query.query_string.query].doc_count;
+          } else {
+            value = resp.aggregations["2"].buckets["*"][d.id].value;
+          }
         } else {
           value = resp.hits.total;
         }

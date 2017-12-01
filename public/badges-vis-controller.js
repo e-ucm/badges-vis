@@ -13,9 +13,9 @@ module.controller('BadgesVisController', function ($scope, $element, Private) {
 
   var percentNiceAggResponse = Private(require('./lib/agg_response'));
 
-  var computeValue = function _render(results) {
+  var computeValue = function (results) {
 
-    if (results.length !== 2) {
+    if (!results || results.length !== 2) {
       return;
     }
 
@@ -30,7 +30,11 @@ module.controller('BadgesVisController', function ($scope, $element, Private) {
     if ($scope.vis.params.division) {
       value = val2 / val1;
     } else {
-      value = val2;
+      if($scope.vis.params.numerator) {
+        value = val1;
+      } else {
+        value = val2;
+      }
     }
 
     var valueFormatted = results[0].formatNumber ? numeral(value).format(results[0].formatNumber) : value;

@@ -27,7 +27,8 @@ function badgesVisProvider(Private) {
         text: 'Badge text',
         value: '0',
         division: true,
-        numeralFormat: '[{ "numeralFormat" : "%00,0" }]'
+        numeralFormat: '[{ "numeralFormat" : "%00,0" }]',
+        useNumerator: false
       },
       editor: badgesVisParamsTemplate
     },
@@ -46,8 +47,7 @@ function badgesVisProvider(Private) {
         title: 'Divided by',
         min: 1,
         max: 1,
-        aggFilter: ['!geohash_grid'],
-        defaults: [{type: 'filters'}]
+        aggFilter: ['!geohash_grid']
       }
     ])
   });

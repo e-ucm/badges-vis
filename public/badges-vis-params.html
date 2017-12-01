@@ -30,3 +30,7 @@
   <label>Perform division</label>
   <input type="checkbox" ng-model="vis.params.division" ng-checked="true" class="ng-pristine ng-valid ng-touched">
 </div>
+<div class="form-group">
+  <label>Use numerator value (if false, denominator value is used)</label>
+  <input type="checkbox" ng-model="vis.params.numerator" ng-show="!vis.params.division" class="ng-pristine ng-valid ng-touched">
+</div>
